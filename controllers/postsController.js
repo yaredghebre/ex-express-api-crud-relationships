@@ -79,7 +79,21 @@ async function store(req, res, next) {
       image: addData.image,
       content: addData.content,
       published: addData.published,
+      categoryId: addData.categoryId,
+      tags: {
+        connect: addData.tags.map((tagId) => ({ id: tagId })),
+      },
     },
+    // include: {
+    //   categoryId: {
+    //     id: true,
+    //   },
+    //   tags: {
+    //     id: true,
+    //     name: true,
+    //     slug: true,
+    //   },
+    // },
   });
 
   return res.json(newPost);
