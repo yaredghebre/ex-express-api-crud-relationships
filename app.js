@@ -5,6 +5,7 @@ const path = "path";
 const postsRouter = require("./routers/postsRouter");
 const categoriesRouter = require("./routers/categoriesRouter");
 const tagsRouter = require("./routers/tagsRouter");
+const authRouter = require("./routers/authRouter");
 
 const routeNotFound = require("./middlewares/routeNotFound");
 const errorsHandler = require("./middlewares/errorsHandler");
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use("/posts", postsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/tags", tagsRouter);
+app.use("", authRouter);
 
 app.use(routeNotFound);
 
